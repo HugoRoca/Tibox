@@ -54,6 +54,8 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="Nortwhind\CustomerReporitory.cs" />
     <Compile Include="Nortwhind\ICustomerRepository.cs" />
+    <Compile Include="Nortwhind\IOrderRepository.cs" />
+    <Compile Include="Nortwhind\OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
