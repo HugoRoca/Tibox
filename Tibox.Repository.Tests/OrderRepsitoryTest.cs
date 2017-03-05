@@ -19,7 +19,14 @@ namespace Tibox.DataAccess.Tests
             _repository = new BaseRepository<Order>();
         }
 
-        
+        [TestMethod]
+        public void Get_All_Order()
+        {
+            var result = _repository.GetAll();
+            Assert.AreEqual(result.Count() > 0, true);
+        }
+
+
         
     }
 }
