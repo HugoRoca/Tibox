@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <title>Bienvenidos a Tibox Web Site</title>
+    <link href="components/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <script src="components/bootstrap/js/bootstrap.js"></script>
+    <script src="components/jquery/jquery-3.1.1.min.js"></script>
     <link href="style/styles.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -23,10 +27,22 @@
     </header>
     <h3>Nuestros productos.</h3>
     <section>
-        <video width="320" height="240" controls>
+        <video id="video" width="320" height="240" controls>
             <source src="video/html5.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <div>
+            <button class="btn btn-success" onclick="tibox.video.play();">
+                <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-success" onclick="tibox.video.pause();">
+                <i class="fa fa-pause" aria-hidden="true"></i>
+            </button>
+            <button class="btn btn-success" onclick="tibox.video.stop();">
+                <i class="fa fa-stop" aria-hidden="true"></i>
+            </button>
+
+        </div>
     </section>
     <section>
         <audio controls>
@@ -35,7 +51,10 @@
         </audio>
     </section>
     <footer>
-        Nuestra Dirección
+        &copy; Todos los derechos reservados a Tibox -<span id="date"></span>
     </footer>
+
+    <script src="script/index.js"></script>
+    <script src="script/video.js"></script>
 </body>
 </html>
