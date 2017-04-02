@@ -1,11 +1,11 @@
 ﻿body {
     background-color: $background-color;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;    
 
     @include break-point(md) {
-        padding-left: 5rem;
-        padding-right: 5rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
 
     header {
@@ -19,7 +19,7 @@
     }
 
     footer {
-        background-color: $site-color-black;
+        background: $site-color-black;
         color: $site-color-white;
         height: 2rem;
         position: fixed;
@@ -30,18 +30,18 @@
         padding-top:10px;
     }
 
-    section{
+    section {
         padding-top: 4rem;
-        margin-bottom: 4rem;
+        margin-bottom:4rem;
     }
 }
 
-.headerlogo{
-    img{
-        float:left;
+.headerlogo {
+    img {
+        float: left;
         margin-left: 2rem;
         margin-top: 10px;
-        width: 260px;
+        width: 40px;
         height: auto;
     }
 }

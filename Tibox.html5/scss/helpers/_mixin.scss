@@ -1,39 +1,27 @@
-﻿@mixin break-point($breakpoint) {
-    $bd-xs: "(max-width: 420px)";
-    $bd-sm: "(min-width: 420px)";
-    $bd-md: "(min-width: 768px)";
-    $bd-lg: "(min-width: 1024px)";
-    $bd-xl: "(min-width: 1280px)";
-    $bd-xxl: "(min-width: 1900px)";
+﻿@mixin break-point($breakpoint){
+    $bp-xs: "(max-width: 420px)";
+    $bp-sm: "(min-width: 420px)";
+    $bp-md: "(min-width: 768px)";
+    $bp-lg: "(min-width: 1024px)";
+    $bp-xl: "(min-width: 1280px)";
+    $bp-xxl: "(min-width: 1900px)";
 
-    @if($breakpoint == xs) {
-        @media #{$bd-xs} {
-            @content;
-        }
+    @if $breakpoint == xs{
+        @media #{$bp-xs} { @content; }
     }
-    @else if($breakpoint == sm) {
-        @media #{$bd-sm} {
-            @content;
-        }
+    @else if $breakpoint==sm{
+        @media #{$bp-sm} { @content; }
     }
-    @else if($breakpoint == md) {
-        @media #{$bd-md} {
-            @content;
-        }
+    @else if $breakpoint==md{
+        @media #{$bp-md} { @content; }
     }
-    @else if($breakpoint == lg) {
-        @media #{$bd-lg} {
-            @content;
-        }
+    @else if $breakpoint==lg{
+        @media #{$bp-lg} { @content; }
     }
-    @else if($breakpoint == xl) {
-        @media #{$bd-xl} {
-            @content;
-        }
+    @else if $breakpoint==xl{
+        @media #{$bp-xl} { @content; }
     }
-    @else if($breakpoint == xxl) {
-        @media #{$bd-xxl} {
-            @content;
-        }
+    @else if $breakpoint==xxl{
+        @media #{$bp-xxl} { @content; }
     }
 }

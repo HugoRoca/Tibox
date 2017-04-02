@@ -4,16 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <title>Bienvenidos a Tibox Web Site</title>
-    <link href="components/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="components/jquery/jquery.min.js" type="text/javascript"></script>
+    <link href="components/bootstrap/css/bootstrap.css" rel="stylesheet" />    
+    <script src="components/bootstrap/js/bootstrap.js"  type="text/javascript"></script>
+    <link href="styles/styles.min.css" rel="stylesheet" />
     <link href="components/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <script src="components/bootstrap/js/bootstrap.js"></script>
-    <script src="components/jquery/jquery-3.1.1.min.js"></script>
-    <link href="style/styles.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
         <a class="headerlogo" href="index.html">
-            <img src="images/logo-default.png" />
+            <img src="images/logo.jpeg" />
         </a>
         <nav class="dropdown">
             <button class="menu-title">Menu</button>
@@ -25,11 +25,12 @@
             </ul>
         </nav>
     </header>
-    <h3>Nuestros productos.</h3>
     <section>
-        <video id="video" width="320" height="240" controls>
-            <source src="video/html5.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+        <h3>Nuestros productos.</h3>
+    </section>
+    <section>
+        <video preload="auto" width="320" height="240" id="video">
+            <source src="html5.mp4" type="video/mp4" media="" />
         </video>
         <div>
             <button class="btn btn-success" onclick="tibox.video.play();">
@@ -41,20 +42,18 @@
             <button class="btn btn-success" onclick="tibox.video.stop();">
                 <i class="fa fa-stop" aria-hidden="true"></i>
             </button>
-
         </div>
     </section>
     <section>
         <audio controls>
-            <source src="audio/Adrian y Sonia-Que Bonito.mp3" type="audio/mpeg">
+            <source src="Adrian y Sonia-Que Bonito.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
     </section>
     <footer>
         &copy; Todos los derechos reservados a Tibox -<span id="date"></span>
     </footer>
-
-    <script src="script/index.js"></script>
-    <script src="script/video.js"></script>
+    <script src="scripts/index.js" type="text/javascript"></script>
+    <script src="scripts/video.js" type="text/javascript"></script>
 </body>
 </html>

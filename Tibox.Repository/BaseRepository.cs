@@ -1,26 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using Dapper.Contrib.Extensions;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using Dapper.Contrib.Extensions;
 
 namespace Tibox.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : class
     {
         protected readonly string _connectionString;
-
         public BaseRepository()
         {
             _connectionString = ConfigurationManager
-                .ConnectionStrings["NorthwindConnectionString"]
-                .ConnectionString;
+                    .ConnectionStrings["NorthwindConnectionString"]
+                    .ConnectionString;
         }
-
         public bool Delete(T entity)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                return connection.Delete<T>(entity); ;
+                return connection.Delete(entity);
             }
         }
 
