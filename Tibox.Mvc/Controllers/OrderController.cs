@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Tibox.Models;
 using Tibox.Mvc.Models;
 using Tibox.UnitOfWork;
 
@@ -10,29 +11,37 @@ namespace Tibox.Mvc.Controllers
 {
     public class OrderController : BaseController
     {
-        public OrderController(IUnitOfWork unit): base(unit)
+        // GET: Order
+
+        public OrderController(IUnitOfWork unit) : base(unit)
         {
+        }
+
+        public ActionResult Index()
+        {
+            return View(_unit.Orders.GetAll());
         }
 
         public ActionResult Create()
         {
-            return View();
+            var model = new OrderViewModel
+            {
+                Order = new Order { OrderDate = DateTime.Now },
+                Customers = _unit.Customers.GetAll()
+            };
+            return View(model);
         }
 
-        public JsonResult Save(OrderViewModel model)
+        [HttpPost]
+        public ActionResult Create(OrderViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                //var id = _unit.Orders.Insert(model.Order);
-                //model.OrderItems.Select(c => { c.OrderId = id; return c; }).ToList();
-                //foreach (var orderItem in model.OrderItems)
-                //{
-                //    _unit.OrderItems.Insert(orderItem);
-                //}
-                _unit.Orders.SaverOrderAndOrderItems(model.Order, model.OrderItems);
-                return Json("ok");
+            if (!ModelState.IsValid) {
+                model.Customers = _unit.Customers.GetAll();
+                return View(model);
             }
-            return Json("error");
+                
+            var id = _unit.Orders.Insert(model.Order);
+            return RedirectToAction("Index");
         }
     }
 }

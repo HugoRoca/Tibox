@@ -2,6 +2,7 @@
     tibox.customer = tibox.customer || {};
     tibox.customer.rowSize = 25;
     tibox.customer.pages = 1;
+    var nNumPagina = 0;
 
     function init() {
         $.get('/Customer/Count/' + tibox.customer.rowSize,
@@ -24,6 +25,7 @@
                     firstClass: 'first'
                 }).on('page', function (event, num) {
                     getCustomers(num);
+                    nNumPagina = num;
                 });
             });
     }

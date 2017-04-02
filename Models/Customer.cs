@@ -7,7 +7,7 @@ namespace Tibox.Models
     [Table("Customer")]
     public class Customer
     {
-        [ScaffoldColumn(false)]
+        //[ScaffoldColumn(false)]
         public int Id { get; set; }  
 
         [Display(Name ="First Name")]   

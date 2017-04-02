@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Web.Mvc;
 using Tibox.Models;
 using Tibox.Mvc.FilterActions;
@@ -28,6 +29,7 @@ namespace Tibox.Mvc.Controllers
         {
             if (!ModelState.IsValid) return PartialView("Create", customer);
             var id = _unit.Customers.Insert(customer);
+            //return new HttpStatusCodeResult(HttpStatusCode.Ok());
             return RedirectToAction("Index");
         }
 
@@ -86,5 +88,7 @@ namespace Tibox.Mvc.Controllers
             var customers = _unit.Customers.GetAll();
             return Json(customers, JsonRequestBehavior.AllowGet);
         }
+
+
     }
 }

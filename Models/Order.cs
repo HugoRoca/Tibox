@@ -9,9 +9,11 @@ namespace Tibox.Models
     public class Order
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "This field is required")]
         [DataType(DataType.DateTime)]
-        public DateTime OrderDate { get; set; }        
+        public DateTime OrderDate { get; set; }
         public string OrderNumber { get; set; }
+        [Required(ErrorMessage = "This field is required")]
         public int CustomerId { get; set; }
         public decimal? TotalAmount { get; set; }
         [Computed]
