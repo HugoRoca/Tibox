@@ -33,15 +33,19 @@ namespace Tibox.Mvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(OrderViewModel model)
+        public JsonResult Save(OrderViewModel model)
         {
-            if (!ModelState.IsValid) {
-                model.Customers = _unit.Customers.GetAll();
-                return View(model);
-            }
-                
+            if (!ModelState.IsValid) return Json("Error");
+            _unit.Orders.SaverOrderAndOrderItems(model.Order, model.OrderItems);
+
             var id = _unit.Orders.Insert(model.Order);
-            return RedirectToAction("Index");
+            //Expreiones landa, esto reemplaza el order id, es mejor que hacerlo con un  for
+            model.OrderItems.Select(oi => { oi.OrderId = id; return oi; }).ToList();
+            foreach (var orderItem in model.OrderItems)
+            {
+                _unit.OrderItems.Insert(orderItem);
+            }
+            return Json("Ok", JsonRequestBehavior.AllowGet);
         }
     }
 }

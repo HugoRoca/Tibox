@@ -4,6 +4,7 @@ namespace Tibox.Mvc.App_Start
 {
     public class BundleConfig
     {
+        //administrar el contenido estatico
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(

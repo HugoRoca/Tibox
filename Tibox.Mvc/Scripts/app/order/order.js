@@ -12,11 +12,11 @@
                 response.forEach(function (item) {
                     $('#CustomerId')
                         .append("<option value='" +
-                        item.Id + "' >"+
+                        item.Id + "' >" +
                         item.FirstName + " " + item.LastName +
                         "</option>"
                     );
-                }, this);                
+                }, this);
             },
             error: function (error) {
                 alert(error);
@@ -48,25 +48,19 @@
     };
 
     tibox.order.addOrderItem = function () {
-        var $newRow = $('#orderItems').clone().removeAttr('id');
-        $('#product', $newRow).val($('#product').val());
+        var $row = $("#contentRow").clone().removeAttr('id');
+        $('#product', $row).val($('#product').val());
+        $('#addItemButton', $row).addClass('remove').val('remove').removeClass('btn-success').addClass('btn-danger');
+        $('#product, #unitPrice, #quantity', $row).removeAttr('id');
+        $('#orderItemList').append($row);
+        $('#product').val(0);
+        $('#unitPrice, #quantity').val('');
+    }
 
-        //Replace add button with remove button
-        $('#addItemButton', $newRow).addClass('remove').val('Remove').removeClass('btn-success').addClass('btn-danger');
-
-        //remove id attribute from new clone row
-        $('#product,#unitPrice,#quantity', $newRow).removeAttr('id');        
-        //append clone row
-        $('#orderItemList').append($newRow);
-
-        //clear select data
-        $('#product').val('0');
-        $('#unitPrice,#quantity').val('');
-    };
-    
-    tibox.order.saveOrder = function () {
+    tibox.order.save = function(){
         var orderItemList = [];
-        $('#orderItemList tbody tr').each(function (index, ele) {
+        
+        $('#orderItemList tbody tr').each(function (index, value) {
             var orderItem = {
                 ProductId: $('select.product', this).val(),
                 UnitPrice: parseFloat($('.unitPrice', this).val()),
@@ -77,13 +71,14 @@
 
         var data = {
             Order: {
-                OrderDate: $('#OrderDate').val().trim(),
-                OrderNumber: $('#OrderNumber').val().trim(),
-                CustomerId: $('#CustomerId').val().trim(),
-                TotalAmount: $('#TotalAmount').val().trim()
+                OrderDate: $('#Order_OrderDate').val(),
+                OrderNumber: $('#Order_OrderNumber').val(),
+                CustomerId: $('#CustomerId').val(),
+                TotalAmount: $('#Order_TotalAmount').val()
             },
-            OrderItems: orderItemList
-        }
+            OrderItems: orderItemList           
+        };
+
 
         $.ajax({
             url: '/Order/Save',
@@ -102,13 +97,15 @@
     function init() {
         tibox.order.getCustomers();
         tibox.order.getProducts();
-        $("input[type='datetime']").datetimepicker();
 
         $('#addItemButton').click(tibox.order.addOrderItem);
 
+        //anidacion handler
         $('#orderItemList').on('click', '.remove', function () {
             $(this).parents('tr').remove();
         });
+
+        $('#btnSave').click(tibox.order.save);
     }
 
     init();

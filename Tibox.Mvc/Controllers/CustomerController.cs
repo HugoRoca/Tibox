@@ -89,6 +89,5 @@ namespace Tibox.Mvc.Controllers
             return Json(customers, JsonRequestBehavior.AllowGet);
         }
 
-
     }
 }
