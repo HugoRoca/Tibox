@@ -12,9 +12,9 @@ namespace Tibox.WebApi.Controllers
     public class BaseController : ApiController
     {
         protected readonly IUnitOfWork _unit;
-        public BaseController()
+        public BaseController(IUnitOfWork unit)
         {
-            _unit = new TiboxUnitOfWork();
+            _unit = unit;
         }
     }
 }
