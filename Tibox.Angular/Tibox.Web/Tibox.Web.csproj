@@ -110,12 +110,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\style.css" />
+    <Content Include="Content\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Default\Index.cshtml" />
+    <None Include="Content\scss\style.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Content\scss\helpers\_colors.scss" />
+    <None Include="Content\scss\base\_site.scss" />
+    <None Include="Content\scss\base\_navigation.scss" />
+    <Content Include="Content\scss\helpers\fonts\PaytoneOne.ttf" />
+    <Content Include="Content\scss\helpers\fonts\PaytoneOne.woff" />
+    <None Include="Content\scss\helpers\_fonts.scss" />
+    <None Include="Content\scss\helpers\_mixin.scss" />
+    <None Include="Content\scss\base\_components.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

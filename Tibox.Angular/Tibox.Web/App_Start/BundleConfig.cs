@@ -7,6 +7,9 @@ namespace Tibox.Web
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new StyleBundle("~/bundles/css")
+                .Include("~/Content/style.min.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/angular-ui-router.js"));

@@ -10,7 +10,7 @@
         $stateProvider
             .state("home", {
                 url: "/home",
-                templateUrl: "~/app/home.html"
+                templateUrl: "app/home.html"
             })
             .state("login", {
                 url: "/login",

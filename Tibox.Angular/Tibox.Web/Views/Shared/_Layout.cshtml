@@ -2,12 +2,33 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
     <title>Tibox Angular</title>
+    @Styles.Render("~/bundles/css")
 </head>
 <body>
-    <div>
-        @RenderBody()
+   <div class="body">
+        <header>
+            <a class="logo" ui-sref="home">TiBox</a>
+            <nav class="dropdown">
+                <button class="menu-title">Menu</button>
+                <ul class="dropdown-content">
+                    <li><a ui-sref="home">Inicio</a></li>
+                    <li><a href="">Contactanos</a></li>
+                    <li><a href="">¿Quiénes somos?</a></li>
+                    <li><a ui-sref="login">Inicia sesion</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contenido">
+            <div class="contenedor">
+                @RenderBody()
+            </div>            
+        </div>
+
+        <footer>
+            Todos los derechos reservados
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/angular")
