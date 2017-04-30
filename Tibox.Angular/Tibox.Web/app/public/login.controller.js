@@ -4,6 +4,8 @@
 
     angular.module('app').controller('loginController', loginController);
 
+    loginController.$inject = ['authenticationServive', '$state']
+
     function loginController(authenticationServive, $state) {
         var vm = this;
         vm.user = {};

@@ -4,6 +4,8 @@
 
     angular.module('app').factory("authenticationServive", authenticationServive);
 
+    authenticationServive.$inject = ['$http', '$state', 'localStorageService', 'configService'];
+
     function authenticationServive($http, $state, localStorageService, configService) {
         var service = {};
         service.login = login;

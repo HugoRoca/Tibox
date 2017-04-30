@@ -4,9 +4,13 @@
 
     angular.module("app").config(config).run(run);
 
+    config.$inject = ['$compileProvider'];
+
     function config($compileProvider) {
-        $compileProvider.debugInfoEnabled(false);
+        $compileProvider.debugInfoEnabled(true);
     }
+
+    run.$inject = ['$http', '$state', 'localStorageService', 'configService']
 
     function run($http, $state, localStorageService, configService) {
         var user = localStorageService.get('userToken');

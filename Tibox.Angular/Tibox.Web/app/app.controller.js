@@ -4,6 +4,8 @@
 
     angular.module("app").controller("applicationController", applicationController);
 
+    applicationController.$inject = ['$scope', 'configService', 'authenticationServive']
+
     function applicationController($scope, configService, authenticationServive) {
         var vm = this;
 

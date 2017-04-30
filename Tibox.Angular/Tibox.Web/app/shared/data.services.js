@@ -4,6 +4,8 @@
 
     angular.module('app').factory('dataService', dataService);
 
+    dataService.$inject = ['$http'];
+
     function dataService($http) {
         var service = {};
         service.getData = getData;

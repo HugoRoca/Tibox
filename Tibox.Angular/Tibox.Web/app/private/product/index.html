@@ -1,3 +1,36 @@
 ﻿<div ng-controller="productController as vm">
     <h1>Product controller</h1>
+
+    <button class="btn btn-default"
+            ng-click="vm.create();"
+            data-toggle="modal"
+            data-target="#modal-container">
+        <span class="glyphicon glyphicon-save"></span> Crear
+    </button>
+
+    <product-card ng-repeat="product in vm.productList"
+                  id="{{::product.id}}"
+                  product-name="{{::product.productName}}"
+                  supplier-id="{{::product.supplierId}}"
+                  unit-price="{{::product.unitPrice}}"
+                  package="{{::product.package}}"
+                  is-discontinued="product.isDiscontinued">
+
+        <button class="btn btn-primary"
+                ng-click="vm.getProduct(product.id); vm.edit();"
+                data-toggle="modal"
+                data-target="#modal-container">
+            <span class="glyphicon glyphicon-edit"></span> Editar
+        </button>
+
+    </product-card>
+
+    <modal-panel title="{{vm.modalTitle}}"
+                 button-title="{{vm.modalButtonTitle}}"
+                 save-function="vm.modalFunction"
+                 close-function="vm.closeModal"
+                 read-only="vm.readOnly"
+                 is-delete="vm.isDelete">
+        <product-form product="vm.product"></product-form>
+    </modal-panel>
 </div>

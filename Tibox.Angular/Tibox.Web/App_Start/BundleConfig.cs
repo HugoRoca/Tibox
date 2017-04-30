@@ -16,7 +16,7 @@ namespace Tibox.Web
 
             bundles.Add(new ScriptBundle("~/bundlee/bootstrapjs")
                 .Include("~/Scripts/jquery.js")
-                .Include("~/Content/bootstrsp/js/bootstrap.js"));
+                .Include("~/Content/bootstrap/js/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular.js")
@@ -26,12 +26,22 @@ namespace Tibox.Web
                 .Include("~/app/app.js")
                 .Include("~/app/app.routes.js")
                 .Include("~/app/app.config.js")
-                .Include("~/app/app.controller.js")               
+                .Include("~/app/app.controller.js")
 
-                .IncludeDirectory("~/app/shared","*.js", true)
+                .IncludeDirectory("~/app/components", "*.js", true)
+                .IncludeDirectory("~/app/shared", "*.js", true)
                 .IncludeDirectory("~/app/private", "*.js", true)
                 .IncludeDirectory("~/app/public", "*.js", true)
                 );
+
+            bundles.Add(new DynamicFolderBundle("js", "*.js", false, new JsMinify()));
+            bundles.Add(new DynamicFolderBundle("css", "*.css", false, new CssMinify()));
+
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+#else
+            BundleTable.EnableOptimizations = true;
+#endif
         }
     }
 }
