@@ -9,14 +9,14 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3DD10687-2C7C-4C97-8643-25A07ED068F2}</ProjectGuid>
+    <ProjectGuid>{F4EE07BA-1CFB-4AA8-AF27-4A7B59227544}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tibox.Web</RootNamespace>
     <AssemblyName>Tibox.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -110,29 +110,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\style.css" />
-    <Content Include="Content\style.min.css">
-      <DependentUpon>style.css</DependentUpon>
+    <Content Include="app\app.config.js" />
+    <Content Include="app\app.controller.js" />
+    <Content Include="app\private\product\index.html" />
+    <Content Include="app\private\product\product.controller.js" />
+    <Content Include="app\public\login.controller.js" />
+    <Content Include="app\public\login.html" />
+    <Content Include="app\shared\authentication.service.js" />
+    <Content Include="app\shared\configuration.service.js" />
+    <Content Include="app\shared\data.services.js" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\site.css" />
+    <Content Include="Content\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
     </Content>
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\modules\angular-local-storage.js" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Default\Index.cshtml" />
-    <None Include="Content\scss\style.scss" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Content\scss\base\_button.scss" />
+    <None Include="Content\scss\base\_input.scss" />
+    <None Include="Content\scss\base\_navigation.scss" />
+    <None Include="Content\scss\base\_site.scss" />
+    <None Include="Content\scss\directives\_product.scss" />
+    <None Include="Content\scss\helpers\_colors.scss" />
+    <None Include="Content\scss\helpers\_mixin.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <None Include="Content\scss\helpers\_colors.scss" />
-    <None Include="Content\scss\base\_site.scss" />
-    <None Include="Content\scss\base\_navigation.scss" />
-    <Content Include="Content\scss\helpers\fonts\PaytoneOne.ttf" />
-    <Content Include="Content\scss\helpers\fonts\PaytoneOne.woff" />
-    <None Include="Content\scss\helpers\_fonts.scss" />
-    <None Include="Content\scss\helpers\_mixin.scss" />
-    <None Include="Content\scss\base\_components.scss" />
+    <None Include="Content\scss\styles.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -144,9 +162,8 @@
     <Content Include="app\app.js" />
     <Content Include="app\app.routes.js" />
     <Content Include="app\home.html" />
-    <Content Include="app\login.html" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\modules\angular-ui-router.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -175,9 +192,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>34760</DevelopmentServerPort>
+          <DevelopmentServerPort>29620</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:34760/</IISUrl>
+          <IISUrl>http://localhost:81/Tibox.Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -189,7 +206,7 @@
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />

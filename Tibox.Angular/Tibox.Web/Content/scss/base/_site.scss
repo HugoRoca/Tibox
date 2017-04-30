@@ -1,68 +1,48 @@
-﻿* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
+﻿body {
     background-color: $background-color;
-}
+    margin: 2rem 2rem;   
+    padding-top: 5rem;
 
-.body {
-    padding-left: 2rem;
-    padding-right: 2rem;
-
-    @include break-point(md) {
-        padding-left: 4rem;
-        padding-right: 4rem;
-    }
-
-    h1 {
-        font-family: $font;
+    @include break-point(md) {        
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
 
     header {
-        background: $site-color-black;
-        z-index: 1000;
+        position: fixed;
         right: 0;
         left: 0;
         top: 0;
+        border-width: 0 0 1px;
+        background-color: $site-color-black;
         height: 4rem;
     }
 
-    .contenido {
-        margin: auto;
-        overflow: hidden;
-        background-color: $site-color-white;
-
-        .contenedor{
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f1f1f1;
-            border-radius: 20px;
-            box-shadow: 2px 0 10px 0 #878787;
-        }
+    footer {
+        background: $site-color-black;
+        color: $site-color-white;
+        height: 3rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding-top:5px;
     }
 
-    footer {
-        background-color: $site-color-black;
-        color: $site-color-white;
-        padding: 10px;
-        text-align: center;
-        font-family: $font-normal;
+    section {
+        background-color: $background-color;
+        margin-bottom:4rem;
+        padding-top: 2rem;        
     }
 }
 
-.logo{
-    float:left;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 10px;
-    padding: 10px;
-    width: 40px;
-    height:auto;
-    color: $site-color-white;
-    font-family: $font;
-    text-decoration: none;
-    font-size: 16px;
+.headerlogo {
+    img {
+        float: left;
+        margin-left: 2rem;
+        margin-top: 10px;
+        width: 40px;
+        height: auto;
+    }
 }

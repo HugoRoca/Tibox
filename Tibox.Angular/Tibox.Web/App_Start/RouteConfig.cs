@@ -16,7 +16,7 @@ namespace Tibox.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller="default", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller="Default", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

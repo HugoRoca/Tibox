@@ -8,9 +8,9 @@ namespace Tibox.WebApi
 {
     public partial class Startup
     {
-        public void ConfigurationOAuth(IAppBuilder app)
+        public void ConfigureOAuth(IAppBuilder app)
         {
-            var oAuthServerOptions = new OAuthAuthorizationServerOptions()
+            var OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
@@ -18,8 +18,8 @@ namespace Tibox.WebApi
                 Provider = new SimpleAuthorizationServerProvider()
             };
 
-            app.UseOAuthAuthorizationServer(oAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());            
+            app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
     }
 }

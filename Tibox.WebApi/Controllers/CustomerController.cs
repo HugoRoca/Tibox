@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Tibox.Models;
 using Tibox.UnitOfWork;
 
 namespace Tibox.WebApi.Controllers
 {
-    [RoutePrefix("customer")]
-    [Authorize]
+    [RoutePrefix("customer")]    
     public class CustomerController : BaseController
     {
         public CustomerController(IUnitOfWork unit) : base(unit)

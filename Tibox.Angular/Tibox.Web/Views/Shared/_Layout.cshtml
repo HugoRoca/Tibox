@@ -2,35 +2,40 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tibox Angular</title>
     @Styles.Render("~/bundles/css")
+    @Styles.Render("~/bundles/boostrap")
+    @Scripts.Render("~/bundlee/bootstrapjs")    
 </head>
-<body>
-   <div class="body">
-        <header>
-            <a class="logo" ui-sref="home">TiBox</a>
-            <nav class="dropdown">
-                <button class="menu-title">Menu</button>
-                <ul class="dropdown-content">
-                    <li><a ui-sref="home">Inicio</a></li>
-                    <li><a href="">Contactanos</a></li>
-                    <li><a href="">¿Quiénes somos?</a></li>
-                    <li><a ui-sref="login">Inicia sesion</a></li>
+<body ng-controller="applicationController as vm" ng-init="init('@System.Configuration.ConfigurationManager.AppSettings["webApiUrl"]')">    
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="home" ui-sref-active="active">Home</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="login" ui-sref-active="active">Ingresar</a></li>           
+                    <li><a ui-sref="product" ui-sref-active="active">Product</a></li>         
+                    <li><a ng-click="vm.logout();" ui-sref-active="active">Cerrar sesion</a></li>                    
                 </ul>
-            </nav>
-        </header>
-        <div class="contenido">
-            <div class="contenedor">
-                @RenderBody()
-            </div>            
+            </div>
         </div>
-
-        <footer>
-            Todos los derechos reservados
-        </footer>
     </div>
-
+    <section>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    </section>
+    <footer>
+        &copy; Todos los derechos reservados a Tibox
+    </footer> 
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/app")
 </body>

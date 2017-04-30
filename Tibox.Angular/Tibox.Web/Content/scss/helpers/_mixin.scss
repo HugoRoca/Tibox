@@ -1,4 +1,4 @@
-﻿@mixin break-point($breakpoint) {
+﻿@mixin break-point($breakpoint){
     $bp-xs: "(max-width: 420px)";
     $bp-sm: "(min-width: 420px)";
     $bp-md: "(min-width: 768px)";
@@ -6,22 +6,22 @@
     $bp-xl: "(min-width: 1280px)";
     $bp-xxl: "(min-width: 1900px)";
 
-    @if($breakpoint == xs) {
+    @if $breakpoint == xs{
         @media #{$bp-xs} { @content; }
     }
-    @else if($breakpoint == sm) {
+    @else if $breakpoint==sm{
         @media #{$bp-sm} { @content; }
     }
-    @else if($breakpoint == md) {
+    @else if $breakpoint==md{
         @media #{$bp-md} { @content; }
     }
-    @else if($breakpoint == lg) {
+    @else if $breakpoint==lg{
         @media #{$bp-lg} { @content; }
     }
-    @else if($breakpoint == xl) {
+    @else if $breakpoint==xl{
         @media #{$bp-xl} { @content; }
     }
-    @else if($breakpoint == xxl) {
+    @else if $breakpoint==xxl{
         @media #{$bp-xxl} { @content; }
     }
 }

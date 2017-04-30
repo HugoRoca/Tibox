@@ -1,24 +1,28 @@
 ﻿(function () {
+    'use strict';
+    
+    angular.module('app')
+    .config(routeConfig);
 
-    'use strict'
-
-    angular.module('app').config(routeConfig);
-
-    routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+    routeConfig.$inject = ['$stateProvider','$urlRouterProvider'];
 
     function routeConfig($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state("home", {
                 url: "/home",
-                templateUrl: "app/home.html"
+                templateUrl: 'app/home.html'
             })
             .state("login", {
                 url: "/login",
-                templateUrl: "app/login.html"
+                templateUrl: 'app/public/login.html'
+            })
+            .state("product", {
+                url: "/product",
+                templateUrl: 'app/private/product/index.html'
             })
             .state("otherwise", {
-                url: "*path",
-                templateUrl: "app/home.html"
+                url: '*path',
+                templateUrl: 'app/home.html'
             });
     }
 

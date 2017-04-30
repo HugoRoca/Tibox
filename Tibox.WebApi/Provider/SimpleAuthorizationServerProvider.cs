@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using Microsoft.Owin.Security.OAuth;
+﻿using Microsoft.Owin.Security.OAuth;
 using Tibox.UnitOfWork;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Tibox.WebApi.Provider
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         private readonly IUnitOfWork _unit;
-
         public SimpleAuthorizationServerProvider()
         {
             _unit = new TiboxUnitOfWork();
@@ -26,9 +21,9 @@ namespace Tibox.WebApi.Provider
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var user = _unit.Users.ValidateUser(context.UserName, context.Password);
-            if(user == null)
+            if(user==null)
             {
-                context.SetError("invalid_grant","usuario o password incorrecto");
+                context.SetError("invalid_grant", "Usuario o password incorrecto");
                 return;
             }
 
@@ -38,5 +33,6 @@ namespace Tibox.WebApi.Provider
 
             context.Validated(identity);
         }
+
     }
 }
