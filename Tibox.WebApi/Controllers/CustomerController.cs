@@ -4,7 +4,7 @@ using Tibox.UnitOfWork;
 
 namespace Tibox.WebApi.Controllers
 {
-    [RoutePrefix("customer")]    
+    [RoutePrefix("customer")]
     public class CustomerController : BaseController
     {
         public CustomerController(IUnitOfWork unit) : base(unit)
@@ -24,7 +24,8 @@ namespace Tibox.WebApi.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var id = _unit.Customers.Insert(customer);
-            return Ok(new { id = id });
+            //return Ok(new { id = id });}
+            return Ok(id);
         }
 
         [Route("")]
@@ -46,7 +47,7 @@ namespace Tibox.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("list")]        
+        [Route("list")]
         public IHttpActionResult GetList()
         {
             return Ok(_unit.Customers.GetAll());

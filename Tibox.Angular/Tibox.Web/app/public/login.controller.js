@@ -1,22 +1,31 @@
-﻿(function (undefined) {
-
+﻿(function () {
     'use strict';
+    angular.module('app')
+    .controller('loginController', loginController);
 
-    angular.module('app').controller('loginController', loginController);
+    loginController.$inject = ['$http', 'authenticationService', 'configService', '$state'];
 
-    loginController.$inject = ['authenticationServive', '$state']
-
-    function loginController(authenticationServive, $state) {
+    function loginController($http, authenticationService, configService, $state) {
         var vm = this;
         vm.user = {};
+        vm.title = 'Login';
         vm.login = login;
+        vm.showError = false;
 
-        function login() {
-            authenticationServive.login(vm.user);
-            $state.go('home');
+        init();
+
+        function init() {
+            if (configService.getLogin()) $state.go("product");
+            authenticationService.logout();
         }
 
+        function login() {
+            authenticationService.login(vm.user).then(function (result) {
+                vm.showError = false;
+                $state.go("product");
+            }, function (error) {
+                vm.showError = true;
+            });
+        }
     }
-
 })();
-

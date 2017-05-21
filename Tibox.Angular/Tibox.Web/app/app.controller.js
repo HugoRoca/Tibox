@@ -4,9 +4,9 @@
 
     angular.module("app").controller("applicationController", applicationController);
 
-    applicationController.$inject = ['$scope', 'configService', 'authenticationServive']
+    applicationController.$inject = ['$scope', 'configService', 'authenticationService']
 
-    function applicationController($scope, configService, authenticationServive) {
+    function applicationController($scope, configService, authenticationService) {
         var vm = this;
 
         vm.validate = validate;
@@ -21,7 +21,7 @@
         }
 
         function logout() {
-            authenticationServive.logout();
+            authenticationService.logout();
         }
     }
 
