@@ -15,7 +15,7 @@ namespace Tibox.AutomationTests
 
         public LoginPageTestNavigation()
         {
-            Driver.GetInstance(DriverOptions.Firefox);
+            Driver.GetInstance(DriverOptions.Chrome);
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace Tibox.AutomationTests
             LoginPage.LoginAs("chino@gmail.com").WithPassWord("123456").Login();
 
             Thread.Sleep(TimeSpan.FromSeconds(5));
-            LoginPage.GetUrl().Should().Be("http://localhost:81/Tibox.Web/#!/product");
+            LoginPage.GetUrl().Should().Be("http://localhost:81/Tibox.Web/#!/home");
             LoginPage.Logout();
             Driver.CloseInstance();
         }

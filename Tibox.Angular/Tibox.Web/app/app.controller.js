@@ -11,6 +11,7 @@
 
         vm.validate = validate;
         vm.logout = logout;
+        vm.texto = "Sign in";
 
         $scope.init = function (url) {
             configService.setApiUrl(url);

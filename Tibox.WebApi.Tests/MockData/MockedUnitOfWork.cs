@@ -15,6 +15,7 @@ namespace Tibox.WebApi.Tests.MockData
         public MockedUnitOfWork()
         {
             Customers = new MockedCustomerRepository();
+            Suppliers = new MockedSupplierRepository();
         }
 
         public ICustomerRepository Customers { get; private set; }

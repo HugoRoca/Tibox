@@ -15,14 +15,15 @@
         init();
 
         function init() {
-            if (configService.getLogin()) $state.go("product");
+            //if (configService.getLogin()) $state.go("product");
             authenticationService.logout();
         }
 
         function login() {
             authenticationService.login(vm.user).then(function (result) {
                 vm.showError = false;
-                $state.go("product");
+                $state.go("home");
+                vm.title = 'LogOut';
             }, function (error) {
                 vm.showError = true;
             });

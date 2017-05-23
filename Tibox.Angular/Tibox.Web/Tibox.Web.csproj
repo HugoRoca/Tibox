@@ -120,6 +120,10 @@
     <Content Include="app\private\product\directives\product-form\product-form.js" />
     <Content Include="app\private\product\index.html" />
     <Content Include="app\private\product\product.controller.js" />
+    <Content Include="app\private\supplier\index.html" />
+    <Content Include="app\private\supplier\directives\supplier-form\supplier-form.html" />
+    <Content Include="app\private\supplier\directives\supplier-form\supplier-form.js" />
+    <Content Include="app\private\supplier\supplier.controller.js" />
     <Content Include="app\public\login.controller.js" />
     <Content Include="app\public\login.html" />
     <Content Include="app\shared\authentication.service.js" />
